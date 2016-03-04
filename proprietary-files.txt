@@ -160,15 +160,6 @@ vendor/lib/hw/sensors.msm8974.so
 # Thermal
 bin/thermal-engine
 
-# NFC
-#lib/hw/nfc_nci.bcm2079x.default.so
-#vendor/firmware/BCM20791B5_002.006.013.0011.0076_Generic_I2C_NCD_Signed_configdata.ncd
-#vendor/firmware/BCM20791B5_002.006.013.0011.0076_Generic_I2C_NCD_Unsigned_configdata.ncd
-#vendor/firmware/BCM20791B5_002.006.013.0011.0076_Generic_PreI2C_NCD_Signed_configdata.ncd
-#vendor/firmware/BCM20791B5_002.006.013.0011.0076_Generic_PreI2C_NCD_Unsigned_configdata.ncd
-#vendor/firmware/BCM20791B5_002.006.013.0011.0087_Generic_I2C_NCD_Signed_configdata.ncd
-#vendor/firmware/BCM20791B5_002.006.013.0011.0087_Generic_PreI2C_NCD_Signed_configdata.ncd
-
 
 #vendor lib
 vendor/lib/lib-dplmedia.so

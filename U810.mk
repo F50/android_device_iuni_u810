@@ -125,19 +125,6 @@ PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
     VisualizationWallpapers
-
-# NFC packages
-PRODUCT_PACKAGES += \
-    nfc_nci.bcm2079x.default \
-    NfcNci \
-    Tag
- 
- PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-    device/IUNI/U810/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-    device/IUNI/U810/nfc/libnfc-brcm-20791b05.conf:system/etc/libnfc-brcm-20791b05.conf \
-    device/IUNI/U810/nfc/nfcee_access.xml:system/etc/nfcee_access.xml
     
 # Media & Audio
 PRODUCT_PACKAGES += \
@@ -229,7 +216,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so \
     rild.libargs=-d /dev/smd0 \
     telephony.lteOnGSMDevice=1 \
-    ro.nfc.port=I2C \
     persist.radio.add_power_save=1 \
     ro.qualcomm.cabl=1 \
     hw.cabl.level=Auto \

@@ -173,10 +173,6 @@ on boot
     chmod 0666 /sys/class/leds/lcd-cabc/brightness
     #gionee zhoucs add lcd cabc 20140731 end
 
-    # NFC local data and nfcee xml storage
-    mkdir /data/nfc 0770 nfc nfc
-    mkdir /data/nfc/param 0770 nfc nfc
-
     #Gionee enable ssr
     write /sys/bus/msm_subsys/devices/subsys0/restart_level related
     write /sys/bus/msm_subsys/devices/subsys1/restart_level related
