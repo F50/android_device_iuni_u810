@@ -18,7 +18,7 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Prebuilt kernel
-#PRODUCT_COPY_FILES += $(LOCAL_PATH)/kernel:kernel
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/kernel:kernel
 
 # TWRP
 PRODUCT_COPY_FILES += \

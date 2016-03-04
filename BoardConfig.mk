@@ -28,14 +28,14 @@ TARGET_BOARD_PLATFORM := msm8974
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno330
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/gm/e7
-TARGET_KERNEL_CONFIG := e7_defconfig
-#TARGET_PREBUILT_KERNEL := device/IUNI/U810/kernel
-BOARD_KERNEL_SEPARATED_DT := true
+#TARGET_KERNEL_SOURCE := kernel/gm/e7
+#TARGET_KERNEL_CONFIG := e7_defconfig
+TARGET_PREBUILT_KERNEL := device/IUNI/U810/kernel
+BOARD_KERNEL_SEPARATED_DT := false
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.selinux=disabled androidboot.hardware=qcom user_debug=22 msm_rtb.filter=0x37 ehci-hcd.park=3
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_CUSTOM_BOOTIMG_MK := device/IUNI/U810/mkbootimg.mk
+#BOARD_CUSTOM_BOOTIMG_MK := device/IUNI/U810/mkbootimg.mk
 
 # Common Flags
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64
@@ -116,8 +116,7 @@ WIFI_DRIVER_MODULE_NAME := "wlan"
 BOARD_EGL_CFG := device/IUNI/U810/egl.cfg
 
 # fix this up by examining /proc/mtd on a running device
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --kernel_offset 0x00008000
-# --dt device/IUNI/U810/dt.img
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --kernel_offset 0x00008000 --dt device/IUNI/U810/dt.img
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1073741824
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 3221225472
 BOARD_FLASH_BLOCK_SIZE := 131072

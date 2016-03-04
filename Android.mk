@@ -1,6 +1,6 @@
 ifneq ($(filter U810,$(TARGET_DEVICE)),)
     include $(all-subdir-makefiles)
-    #include kernel/gm/e7/AndroidKernel.mk
+    include kernel/gm/e7/AndroidKernel.mk
 
 
 # Symlink firmware from /persist
