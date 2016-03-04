@@ -182,7 +182,7 @@ WIFI_DRIVER_MODULE_NAME := "wlan"
 
 # Recovery
 RECOVERY_FSTAB_VERSION := 2
-TARGET_RECOVERY_FSTAB := $(U810_PATH)/rootdir/root/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(U810_PATH)/rootdir/fstab.qcom
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
+TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/devices/mdp.0/qcom\x2cmdss_fb_primary.148/leds/lcd-backlight/brightness"

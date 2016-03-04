@@ -27,6 +27,7 @@ etc/firmware/a330_pfp.fw
 etc/firmware/a330_pm4.fw
 
 
-
+vendor/lib/libacdbloader.so
 vendor/lib/libNimsWrap.so
+vendor/lib/libQSEEComAPI.so
 
