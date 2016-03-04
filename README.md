@@ -14,7 +14,7 @@ The IUNI U2 (codenamed _"U810"_) is a high-end smartphone from IUNI.
 
 Basic   | IUNI U2                           | 
 -------:|:---------------------------------:|
-CPU     | 2.2GHz Quad-Core MSM8974VV        | 
+CPU     | Qualcomm MSM8974VV Snapdragon 800 | 
 GPU     | Adreno 330                        | 
 Memory  | 2/3GB RAM                         |
 Shipped Android Version | 4.3 up to 4.4.2   |
