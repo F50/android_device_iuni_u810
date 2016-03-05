@@ -11,7 +11,7 @@ def RemoveDeviceAssert(info):
     if "ro.product" in edify.script[i]:
           edify.script[i] = '''ui_print("****************************");
 ui_print("*          IUNI U2         *");
-ui_print("*          MIUI  V7        *");
+ui_print("*     CyanogenMod 12.1     *");
 ui_print("*         ''' + time.strftime('%Y-%m-%d',time.localtime(time.time())) + '''       *");
 ui_print("*    Powered by Heavenke   *");
 ui_print("****************************");'''
