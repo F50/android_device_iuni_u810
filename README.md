@@ -6,10 +6,10 @@ IUNI U2
 The IUNI U2 (codenamed _"U810"_) is a high-end smartphone from IUNI.
 
 		当前进度
-
+		已开机，显示模块工作正常
 		
 
-		Thanks : GaHoKwan、benjiemingwan、梓涵、Me_小华、zhaochengw、cofface
+		Thanks : GaHoKwan、Flour_Mo、benjiemingwan、梓涵、Me_小华、zhaochengw、cofface
 		The reference part of the open source code of GitHub above feroxx, thank him here.
 
 Basic   | IUNI U2                           | 

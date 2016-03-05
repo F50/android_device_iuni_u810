@@ -26,7 +26,19 @@ vendor/lib/libscale.so
 etc/firmware/a330_pfp.fw
 etc/firmware/a330_pm4.fw
 
+# Sensors
+bin/sensors.qcom
+vendor/lib/libsensor1.so
+vendor/lib/libsensor_reg.so
+vendor/lib/libsensor_test2.so
+vendor/lib/hw/sensors.msm8974.so
 
+# Camera
+vendor/libmmcamera2_sensor_modules.so
+
+
+
+# Unknown
 vendor/lib/libacdbloader.so
 vendor/lib/libNimsWrap.so
 vendor/lib/libQSEEComAPI.so
