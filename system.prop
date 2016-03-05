@@ -4,6 +4,7 @@ ro.qualcomm.bt.hci_transport=smd
 # Graphics
 ro.opengles.version=196608
 persist.hwc.mdpcomp.enable=true
+debug.egl.recordable.rgba8888=1
 
 # Ril
 rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
@@ -18,11 +19,6 @@ ro.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=true
 ra.data.large_tcp_window_size=true
 ro.telephony.call_ring.multiple=0
- 
-# adb secure
-ro.secure=0
-ro.adb.secure=0
-debug.egl.recordable.rgba8888=1
 
 # Do not power down SIM card when modem is sent to Low Power Mode.
 persist.radio.apm_sim_not_pwdn=1
@@ -64,5 +60,4 @@ ro.vendor.extension_library=/vendor/lib/libqc-opt.so
 
 # gps
 persist.gps.qmienabled=true
-ro.build.selinux=1
 ro.sf.lcd_density=480

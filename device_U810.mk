@@ -153,8 +153,8 @@ PRODUCT_PACKAGES += \
     liboverlay
 
 # Keystore
-PRODUCT_PACKAGES += \
-    keystore.msm8974
+#PRODUCT_PACKAGES += \
+    #keystore.msm8974
 
 # sensors
 PRODUCT_COPY_FILES += \
@@ -181,6 +181,11 @@ PRODUCT_PACKAGES += \
 # for off charging mode
 PRODUCT_PACKAGES += \
     charger_res_images
+
+ # adb secure
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.secure=0 \
+    ro.adb.secure=0
 
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
