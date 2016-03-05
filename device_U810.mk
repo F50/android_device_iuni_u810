@@ -153,13 +153,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/sensor/sap.conf:system/etc/sap.conf \
     $(LOCAL_PATH)/sensor/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf \
     $(LOCAL_PATH)/sensor/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-    $(LOCAL_PATH)/sensor/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml \
-    $(LOCAL_PATH)/sensor/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
-    $(LOCAL_PATH)/sensor/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
-    $(LOCAL_PATH)/sensor/android.hardware.sensor.light.xmll:system/etc/permissions/android.hardware.sensor.light.xml \
-    $(LOCAL_PATH)/sensor/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-    $(LOCAL_PATH)/sensor/android.hardware.sensor.stepcounter.xml:system/etc/permissions/android.hardware.sensor.stepcounter.xml \
-    $(LOCAL_PATH)/sensor/android.hardware.sensor.stepdetector.xml:system/etc/permissions/android.hardware.sensor.stepdetector.xml
+    $(LOCAL_PATH)/sensor/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml
 
 # MSM IPC Router security configuration
 PRODUCT_COPY_FILES += \
