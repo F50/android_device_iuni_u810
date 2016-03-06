@@ -45,9 +45,7 @@ else
     soc_hwver=`cat /sys/devices/system/soc/soc0/platform_version` 2> /dev/null
 fi
 
-virtual_size=`cat /sys/class/graphics/fb0/virtual_size` 2> /dev/null
-
-log -t BOOT -p i "MSM target '$1', SoC '$soc_hwplatform', HwID '$soc_hwid', SoC ver '$soc_hwver', virtual_size '$virtual_size'"
+log -t BOOT -p i "MSM target '$1', SoC '$soc_hwplatform', HwID '$soc_hwid', SoC ver '$soc_hwver'"
 
 case "$1" in
     "msm7630_surf" | "msm7630_1x" | "msm7630_fusion")
@@ -140,39 +138,25 @@ case "$1" in
                 setprop ro.sf.lcd_density 320
                 ;;
         esac
+        ;;
 
-        # Disable the dsds mode for SKUG board
-        platform_subtype=`cat /sys/devices/soc0/platform_subtype` 2> /dev/null
-        case "$platform_subtype" in
-            "SKUG")
-                setprop persist.radio.multisim.config ""
-                ;;
+    "msm8610")
+        case "$soc_hwplatform" in
             *)
+                setprop ro.sf.lcd_density 240
                 ;;
         esac
         ;;
-
-    "msm8610" | "apq8084")
+    "apq8084")
         case "$soc_hwplatform" in
-            "QRD")
-                case "$virtual_size" in
-                    "720,2560")
-                        log -t BOOT -p i "[ZYDebug] routing ... 720,2560"
-                        setprop ro.sf.lcd_density 320
-                        ;;
-#                    "540,1920")
-#                        log -t BOOT -p i "[ZYDebug] routing ... 540,1920"
-#                        setprop ro.sf.lcd_density 240
-#                        ;;
-                    *)
-                        log -t BOOT -p i "[ZYDebug] routing ...virtual_size defualt"
-                        setprop ro.sf.lcd_density 240
-                        ;;
-                esac
-               ;;
+            "Liquid")
+                setprop ro.sf.lcd_density 293
+                # Liquid do not have hardware navigation keys, so enable
+                # Android sw navigation bar
+                setprop ro.hw.nav_keys 0
+                ;;
             *)
-                log -t BOOT -p i "[ZYDebug] routing ...soc defualt"
-                setprop ro.sf.lcd_density 240
+                setprop ro.sf.lcd_density 440
                 ;;
         esac
         ;;
@@ -182,8 +166,12 @@ esac
 # HDMI can be fb1 or fb2
 # Loop through the sysfs nodes and determine
 # the HDMI(dtv panel)
-for file in /sys/class/graphics/fb*
+for fb_cnt in 0 1 2
 do
+file=/sys/class/graphics/fb$fb_cnt
+dev_file=/dev/graphics/fb$fb_cnt
+  if [ -d "$file" ]
+  then
     value=`cat $file/msm_fb_type`
     case "$value" in
             "dtv panel")
@@ -198,8 +186,14 @@ do
         chmod -h 0664 $file/video_mode
         chmod -h 0664 $file/format_3d
         # create symbolic link
-        ln -s $file /dev/graphics/hdmi
+        ln -s $dev_file /dev/graphics/hdmi
         # Change owner and group for media server and surface flinger
         chown -h system.system $file/format_3d;;
     esac
+  fi
 done
+
+# Set date to a time after 2008
+# This is a workaround for Zygote to preload time related classes properly
+date -s 20090102.130000
+

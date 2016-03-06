@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The Android Open Source Project
+<!-- Copyright (C) 2013 OmniROM Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,7 +14,9 @@
      limitations under the License.
 -->
 
-<!-- Feature for devices with a step detector. -->
-<permissions>
-    <feature name="android.hardware.sensor.stepdetector" />
-</permissions>
+<resources>
+    <!-- Must be true to display button settings -->
+    <bool name="config_device_has_button_settings" translatable="false">true</bool>
+    <!-- Volume Rocker Wake -->
+    <bool name="config_show_volumeRockerWake">true</bool>
+</resources>

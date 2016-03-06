@@ -3,15 +3,11 @@ $(call inherit-product, device/qcom/common/Android.mk)
 
 LOCAL_PATH := device/IUNI/U810
 
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-
-PRODUCT_CHARACTERISTICS := nosdcard
-
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-# E7 Init files
+# U810 Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.qcom.rc:root/init.qcom.rc \
     $(LOCAL_PATH)/rootdir/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
@@ -21,18 +17,17 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.qcom.sh:root/init.qcom.sh \
     $(LOCAL_PATH)/rootdir/init.qcom.ssr.sh:root/init.qcom.ssr.sh \
     $(LOCAL_PATH)/rootdir/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
-    $(LOCAL_PATH)/rootdir/init.qcom.usb.sh:root/init.qcom.usb.sh \
     $(LOCAL_PATH)/rootdir/init.qcom.usb.rc:root/init.qcom.usb.rc \
     $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc \
     $(LOCAL_PATH)/rootdir/fstab.qcom:root/fstab.qcom \
     $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc
-    $(LOCAL_PATH)/mount_ext4.sh:system/bin/mount_ext4.sh
 
 # system/etc files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/hsic.control.bt.sh:system/etc/hsic.control.bt.sh \
     $(LOCAL_PATH)/rootdir/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
     $(LOCAL_PATH)/rootdir/etc/usf_post_boot.sh:system/etc/usf_post_boot.sh \
+    $(LOCAL_PATH)/rootdir/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
     $(LOCAL_PATH)/rootdir/etc/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh
 
 PRODUCT_COPY_FILES += \
@@ -76,6 +71,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/thermal-engine-8974.conf:system/etc/thermal-engine-8974.conf \
+    $(LOCAL_PATH)/rootdir/etc/power_profiles.xml:system/etc/power_profiles.xml
 
 # Wifi config
 PRODUCT_COPY_FILES += \
@@ -106,54 +102,63 @@ PRODUCT_PACKAGES += \
     libQWiFiSoftApCfg \
     wcnss_service
 
+# OtherParts
+PRODUCT_PACKAGES += \
+    OtherParts
+
 # Live Wallpapers
 PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
-    VisualizationWallpapers
-    
-# Media & Audio
+    VisualizationWallpapers \
+    librs_jni
+
+# Hardware modules to build
 PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libdivxdrmdecrypt \
-    libdashplayer \
-    libstagefrighthw \
-    qcmediaplayer
+    hwcomposer.msm8974 \
+    gralloc.msm8974 \
+    copybit.msm8974 \
+    camera-wrapper.msm8974 \
+    memtrack.msm8974 \
+    lights.msm8974 \
+    keystore.msm8974
 
-PRODUCT_BOOT_JARS += qcmediaplayer
-
+#Audio
 PRODUCT_PACKAGES += \
     audiod \
-    audio.a2dp.default \
     audio_policy.msm8974 \
-    audio.primary.msm8974 \
+    audio.a2dp.default \
     audio.r_submix.default \
     audio.usb.default \
     libaudio-resampler \
-    libqcompostprocbundle \
-    libqcomvisualizer \
-    libqcomvoiceprocessing \
+    libacdbloader \
+    libacdbmapper \
+    libaudcal \
+    libaudioalsa \
+    libdiag
+
+# for audio.primary.msm8974
+PRODUCT_PACKAGES += \
+    libtinyalsa \
+    libtinycompress \
     tinymix \
+    tinyplay \
+    tinycap \
+    tinypcminfo \
+    libtinyxml \
     libtinyxml2
 
-# Graphics
+# Audio effects
 PRODUCT_PACKAGES += \
-    copybit.msm8974 \
-    gralloc.msm8974 \
-    hwcomposer.msm8974 \
-    memtrack.msm8974 \
-    liboverlay
-
-# Keystore
-#PRODUCT_PACKAGES += \
-    #keystore.msm8974
+    libqcomvisualizer \
+    libqcomvoiceprocessing \
+    libqcomvoiceprocessingdescriptors \
+    libqcompostprocbundle
 
 # sensors
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/sensor/sap.conf:system/etc/sap.conf \
-    $(LOCAL_PATH)/sensor/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf \
-    $(LOCAL_PATH)/sensor/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-    $(LOCAL_PATH)/sensor/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml
+    $(LOCAL_PATH)/sensor/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf
 
 # MSM IPC Router security configuration
 PRODUCT_COPY_FILES += \

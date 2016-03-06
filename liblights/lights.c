@@ -54,7 +54,7 @@ char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
 
 char const*const BUTTONS_FILE
-        = "/sys/class/leds/button-backlight/brightness";
+        = "/sys/class/leds/kpdbl-pwm-1/brightness";
 
 char const*const RED_FREQ_FILE
         = "/sys/class/leds/red/device/grpfreq";

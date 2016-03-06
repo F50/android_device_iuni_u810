@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <mixer>
-    <!-- Audience es325 initial mixer settings begin-->
-    <ctl name="Set Power State" value="Sleep" />
-    <ctl name="Internal Route Config" value="9" />
-    <ctl name="ES325 RX1 Enable" value="0" />
-    <ctl name="ES325 TX1 Enable" value="0" />
-    <!-- Audience es325 initial mixer settings end-->
     <!-- These are the initial mixer settings -->
     <ctl name="Voice Rx Device Mute" id="0" value="0" />
     <ctl name="Voice Rx Device Mute" id="1" value="-1" />
@@ -714,8 +708,8 @@
     <path name="dmic1">
         <ctl name="AIF1_CAP Mixer SLIM TX7" value="1"/>
         <ctl name="SLIM_0_TX Channels" value="One" />
-        <ctl name="SLIM TX7 MUX" value="DEC1" />
-        <ctl name="DEC1 MUX" value="DMIC1" />
+        <ctl name="SLIM TX7 MUX" value="DEC7" />
+        <ctl name="DEC7 MUX" value="DMIC1" />
     <!-- Gionee Huangzhuolin 20140923 @ modify for CR01386607 Begin -->
     <!-- <ctl name="IIR1 INP1 MUX" value="DEC7" /> -->
     <!-- Gionee Huangzhuolin 20140923 @ modify for CR01386607 End -->
@@ -725,22 +719,25 @@
     <path name="mmimic-test-amic1">
         <ctl name="AIF1_CAP Mixer SLIM TX7" value="1"/>
         <ctl name="SLIM_0_TX Channels" value="One" />
-        <ctl name="SLIM TX7 MUX" value="DEC1" />
-        <ctl name="DEC1 MUX" value="DMIC1" />
+        <ctl name="SLIM TX7 MUX" value="DEC6" />
+        <ctl name="DEC6 MUX" value="ADC1" />
+        <ctl name="ADC1 Volume" value="5" />
     </path>
 	
     <path name="mmimic-test-amic2">
         <ctl name="AIF1_CAP Mixer SLIM TX8" value="1"/>
         <ctl name="SLIM_0_TX Channels" value="One" />
-        <ctl name="SLIM TX8 MUX" value="DEC10" />
-        <ctl name="DEC10 MUX" value="DMIC3" />
+        <ctl name="SLIM TX8 MUX" value="DEC2" />
+        <ctl name="DEC2 MUX" value="ADC5" />
+        <ctl name="ADC5 Volume" value="4" />
     </path>
 
     <path name="mmimic-test-amic3">
         <ctl name="AIF1_CAP Mixer SLIM TX7" value="1"/>
         <ctl name="SLIM_0_TX Channels" value="One" />
-        <ctl name="SLIM TX7 MUX" value="DEC5" />
-        <ctl name="DEC5 MUX" value="DMIC5" />
+        <ctl name="SLIM TX7 MUX" value="DEC1" />
+        <ctl name="DEC1 MUX" value="ADC6" />
+        <ctl name="ADC6 Volume" value="10" />
     </path>
 	
     <!-- Gionee Huangzhuolin 20140920 @ add for CR01361120 Begin -->
@@ -804,6 +801,8 @@
         <ctl name="RX3 MIX1 INP1" value="RX1" />
         <ctl name="SLIM_0_RX Channels" value="One" />
         <ctl name="RDAC5 MUX" value="DEM3_INV" />
+        <ctl name="LINEOUT1 Volume" value="20" />
+        <ctl name="LINEOUT3 Volume" value="20" />
     </path>
     <!-- Gionee Huangzhuolin 20140815 @ add for CR01358136 End -->
 
@@ -859,7 +858,7 @@
 
     <path name="speaker-mic">
     <!-- Gionee Huangzhuolin 20140920 @ add for CR01361120 Begin -->
-        <path name="dmic1" />
+        <path name="amic2" />
     <!-- Gionee Huangzhuolin 20140920 @ add for CR01361120 End -->
     </path>
 
@@ -896,26 +895,8 @@
     </path>
 
     <path name="handset-mic">
-        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1"/>
-        <ctl name="SLIM_0_TX Channels" value="One" />
-        <ctl name="SLIM TX7 MUX" value="DEC1" />
-        <ctl name="DEC1 MUX" value="DMIC1" />
-    <!-- Gionee Huangzhuolin 20141226 @ add for CR01430177 begin -->
-        <ctl name="DEC1 Volume" value="100" />
-    <!-- Gionee Huangzhuolin 20141226 @ add for CR01430177 end -->
+        <path name="amic1" />
     </path>
-    
-    <!-- Gionee Huangzhuolin 20141210 @ add for CR01423706 begin -->
-    <path name="voice-handset-mic-es325">
-        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1"/>
-        <ctl name="AIF1_CAP Mixer SLIM TX8" value="1"/>
-        <ctl name="SLIM_0_TX Channels" value="Two" />
-        <ctl name="SLIM TX7 MUX" value="DEC7" />
-        <ctl name="DEC7 MUX" value="DMIC1" />
-        <ctl name="SLIM TX8 MUX" value="DEC9" />
-        <ctl name="DEC9 MUX" value="DMIC5" />
-    </path>
-    <!-- Gionee Huangzhuolin 20141210 @ add for CR01423706 end -->
 
     <path name="anc-handset">
         <ctl name="ANC Function" value="ON" />
@@ -944,9 +925,6 @@
     <path name="headset-mic">
         <path name="adc2" />
         <ctl name="ADC2 Volume" value="13" />
-    <!-- Gionee Huangzhuolin 20141205 @ add for CR01420034 Begin -->
-       <!-- <ctl name="DEC5 Volume" value="110" />-->
-    <!-- Gionee Huangzhuolin 20141205 @ add for CR01420034 End -->
     </path>
 
     <path name="headset-mic-DB">
@@ -963,29 +941,7 @@
         <path name="sidetone-handset" />
         <path name="handset" />
     </path>
-    
-    <!-- Gionee Huangzhuolin 20141210 @ add for CR01423706 begin -->
-    <path name="voice-handset-es325">
-		<ctl name="Set Power State" value="Active" />
-		<ctl name="Internal Route Config" value="0" />
-		<ctl name="ES325 RX1 Enable" value="1" />
-		<ctl name="ES325 TX1 Enable" value="1" />
-        <ctl name="SLIM RX1 MUX" value="AIF1_PB" />
-        <ctl name="SLIM_0_RX Channels" value="One" />
-        <ctl name="RX1 MIX1 INP1" value="RX1" />
-		<ctl name="IIR1 Enable Band1" value="1" />
-		<ctl name="IIR1 Enable Band2" value="1" />
-		<ctl name="IIR1 Enable Band3" value="1" />
-		<ctl name="IIR1 Enable Band4" value="1" />
-		<ctl name="IIR1 Enable Band5" value="1" />
-        <ctl name="IIR1 INP1 Volume" value="62" />
-        <ctl name="RX1 MIX2 INP1" value="IIR1" />
-        <ctl name="CLASS_H_DSM MUX" value="DSM_HPHL_RX1" />
-        <ctl name="RX1 Digital Volume" value="84" />
-        <ctl name="DAC1 Switch" value="1" />
-    </path>
-    <!-- Gionee Huangzhuolin 20141210 @ add for CR01423706 end -->
-    
+
     <path name="voice-handset-tmus">
         <path name="handset" />
     </path>
@@ -994,88 +950,9 @@
         <path name="speaker" />
     </path>
 
-    <!-- Gionee Huangzhuolin 20141217 @ add for CR01423706 begin -->
-    <path name="standard-rec-es325">
-		<ctl name="Set Power State" value="Active" />
-		<ctl name="Internal Route Config" value="10" />
-		<ctl name="ES325 TX1 Enable" value="1" />
-        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
-        <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
-        <ctl name="SLIM TX7 MUX" value="DEC7" />
-        <ctl name="DEC7 MUX" value="DMIC1" />
-        <ctl name="SLIM TX8 MUX" value="DEC10" />
-        <ctl name="DEC10 MUX" value="DMIC3" />
-        <ctl name="SLIM_0_TX Channels" value="Two" />
-    </path>
-
-    <path name="zoom-rec-es325">
-		<ctl name="Set Power State" value="Active" />
-		<ctl name="Internal Route Config" value="8" />
-		<ctl name="ES325 TX1 Enable" value="1" />
-        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
-        <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
-        <ctl name="SLIM TX7 MUX" value="DEC10" />
-        <ctl name="DEC10 MUX" value="DMIC3" />
-        <ctl name="SLIM TX8 MUX" value="DEC9" />
-        <ctl name="DEC9 MUX" value="DMIC5" />
-        <ctl name="SLIM_0_TX Channels" value="Two" />
-    </path>
-
-    <path name="anc-rec-es325">
-		<ctl name="Set Power State" value="Active" />
-		<ctl name="Internal Route Config" value="7" />
-		<ctl name="ES325 TX1 Enable" value="1" />
-        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
-        <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
-        <ctl name="SLIM TX7 MUX" value="DEC10" />
-        <ctl name="DEC10 MUX" value="DMIC3" />
-        <ctl name="SLIM TX8 MUX" value="DEC9" />
-        <ctl name="DEC9 MUX" value="DMIC5" />
-        <ctl name="SLIM_0_TX Channels" value="Two" />
-    </path>
-
-    <path name="iflytek-rec-es325">
-        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
-        <ctl name="SLIM_0_TX Channels" value="One" />
-        <ctl name="SLIM TX7 MUX" value="DEC1" />
-        <ctl name="DEC1 MUX" value="DMIC1" />
-        <ctl name="DEC1 Volume" value="105" />
-    </path>
-    <!-- Gionee Huangzhuolin 20141217 @ add for CR01423706 end -->
-    <!-- Gionee Huangzhuolin 20141210 @ add for CR01423706 begin -->
-    <path name="voice-speaker-es325">
-		<ctl name="Set Power State" value="Active" />
-		<ctl name="Internal Route Config" value="1" />
-		<ctl name="ES325 RX1 Enable" value="1" />
-		<ctl name="ES325 TX1 Enable" value="1" />
-        <ctl name="SLIM RX1 MUX" value="AIF1_PB" />
-        <ctl name="RX3 MIX1 INP1" value="RX1" />
-        <ctl name="SLIM_0_RX Channels" value="One" />
-        <ctl name="RDAC5 MUX" value="DEM3_INV" />
-        <ctl name="LINEOUT1 Volume" value="13" />
-        <ctl name="LINEOUT3 Volume" value="13" />
-    </path>
-    <!-- Gionee Huangzhuolin 20141210 @ add for CR01423706 end -->
-
     <path name="voice-speaker-mic">
         <path name="speaker-mic" />
     </path>
-
-    <!-- Gionee Huangzhuolin 20141210 @ add for CR01423706 begin -->
-    <path name="voice-speaker-mic-es325">
-		<ctl name="Set Power State" value="Active" />
-		<ctl name="Internal Route Config" value="1" />
-		<ctl name="ES325 RX1 Enable" value="1" />
-		<ctl name="ES325 TX1 Enable" value="1" />
-        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1"/>
-        <ctl name="AIF1_CAP Mixer SLIM TX8" value="1"/>
-        <ctl name="SLIM_0_TX Channels" value="Two" />
-        <ctl name="SLIM TX7 MUX" value="DEC10" />
-        <ctl name="DEC10 MUX" value="DMIC3" />
-        <ctl name="SLIM TX8 MUX" value="DEC9" />
-        <ctl name="DEC9 MUX" value="DMIC5" />
-    </path>
-    <!-- Gionee Huangzhuolin 20141210 @ add for CR01423706 end -->
 
     <path name="voice-headphones">
     <!-- Gionee Huangzhuolin 20140923 @ modify for CR01386607 Begin -->
@@ -1084,67 +961,23 @@
         <path name="headphones" />
     </path>
 
-    <!-- Gionee Huangzhuolin 20141210 @ add for CR01423706 begin -->
-    <path name="voice-headphones-es325">
-		<ctl name="Set Power State" value="Active" />
-		<ctl name="Internal Route Config" value="3" />
-		<ctl name="ES325 RX1 Enable" value="1" />
-		<ctl name="ES325 TX1 Enable" value="1" />
-        <path name="headphones" />
-		<ctl name="IIR1 Enable Band1" value="1" />
-		<ctl name="IIR1 Enable Band2" value="1" />
-		<ctl name="IIR1 Enable Band3" value="1" />
-		<ctl name="IIR1 Enable Band4" value="1" />
-		<ctl name="IIR1 Enable Band5" value="1" />
-        <ctl name="IIR1 INP1 Volume" value="76" />
-        <ctl name="RX1 MIX2 INP1" value="IIR1" />
-        <ctl name="RX2 MIX2 INP1" value="IIR1" />
-        <ctl name="CLASS_H_DSM MUX" value="DSM_HPHL_RX1" />
-        <ctl name="HPHL DAC Switch" value="1" />
-        <ctl name="HPHL Volume" value="20" />
-        <ctl name="HPHR Volume" value="20" />
-        <ctl name="RX1 Digital Volume" value="84" />
-        <ctl name="RX2 Digital Volume" value="84" />
-    </path>
-    <!-- Gionee Huangzhuolin 20141210 @ add for CR01423706 end -->
-    
     <path name="voice-headset-mic">
         <path name="headset-mic" />
-        <!-- <path name="sidetone-headphones" /> -->
+        <path name="sidetone-headphones" />
         <ctl name="ADC2 Volume" value="13" />
     </path>
-	
-    <!-- Gionee Huangzhuolin 20141210 @ add for CR01423706 begin -->
-    <path name="voice-headset-mic-es325">
-        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1"/>
-        <ctl name="SLIM_0_TX Channels" value="One" />
-        <ctl name="SLIM TX7 MUX" value="DEC5" />
-        <ctl name="DEC5 MUX" value="ADC2" />
-        <ctl name="DEC5 Volume" value="89" />
-        <ctl name="ADC2 Volume" value="12" />
-    </path>
-    <!-- Gionee Huangzhuolin 20141210 @ add for CR01423706 end -->
 
     <!-- Gionee Huangzhuolin 20140418 @ modify for speaker-and-headphones control CR01201334 Begin -->
     <path name="speaker-and-headphones">
-        <ctl name="SLIM RX1 MUX" value="AIF1_PB" />
-        <ctl name="SLIM RX2 MUX" value="AIF1_PB" />
-        <ctl name="SLIM_0_RX Channels" value="Two" />
+        <path name="headphones" />
         <ctl name="RX3 MIX1 INP1" value="RX1" />
-        <ctl name="RX4 DSM MUX" value="DSM_INV" />
-		<ctl name="LINEOUT1 Volume" value="20" />
-		<ctl name="LINEOUT3 Volume" value="20" />
-        <ctl name="RX1 MIX1 INP1" value="RX1" />
-        <ctl name="RX2 MIX1 INP1" value="RX2" />
-        <ctl name="CLASS_H_DSM MUX" value="DSM_HPHL_RX1" />
-        <ctl name="HPHL DAC Switch" value="1" />
-        <ctl name="HPHR DAC Switch" value="1" />
-		<ctl name="HPHL Volume" value="14" />
-		<ctl name="HPHR Volume" value="14" />
-		<ctl name="RX1 Digital Volume" value="84" />
-		<ctl name="RX2 Digital Volume" value="84" />
-        <!-- <ctl name="COMP1 Switch" value="1" /> -->
-        <!-- <ctl name="RDAC5 MUX" value="DEM3_INV" /> -->
+        <ctl name="RDAC5 MUX" value="DEM3_INV" />
+    <!-- Gionee Huangzhuolin 20141110 @ modify for CR01407954 Begin -->
+		<ctl name="RX1 Digital Volume" value="70" />
+		<ctl name="RX2 Digital Volume" value="70" />
+        <ctl name="LINEOUT1 Volume" value="20" />
+        <ctl name="LINEOUT3 Volume" value="20" />
+    <!-- Gionee Huangzhuolin 20141110 @ modify for CR01407954 End -->
     </path>
     <!-- Gionee Huangzhuolin 20140418 @ modify for speaker-and-headphones control CR01201334 End -->
 
