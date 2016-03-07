@@ -1,17 +1,14 @@
-# CyanogenMod 12.1 For IUNI U2 适配项目
+# CyanogenMod 11 For IUNI U2 适配项目
 
 IUNI U2
 ==============
 
 The IUNI U2 (codenamed _"U810"_) is a high-end smartphone from IUNI.
 
-		项目中止
-		由于官方没开源内核，E7的内核源码里面没有U810的屏幕驱动，项目中止，
-		将从CM11重新起步，采用官方预编译内核进行适配。敬请期待！
+		项目开始
 		
 
 		Thanks : GaHoKwan、Flour_Mo、benjiemingwan、梓涵、Me_小华、zhaochengw、cofface
-		The reference part of the open source code of GitHub above feroxx, thank him here.
 
 Basic   | IUNI U2                           | 
 -------:|:---------------------------------:|
