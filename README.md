@@ -5,8 +5,9 @@ IUNI U2
 
 The IUNI U2 (codenamed _"U810"_) is a high-end smartphone from IUNI.
 
-		当前进度
-		已开机，显示模块工作正常
+		项目中止
+		由于官方没开源内核，E7的内核源码里面没有U810的屏幕驱动，项目中止，
+		将从CM11重新起步，采用官方预编译内核进行适配。敬请期待！
 		
 
 		Thanks : GaHoKwan、Flour_Mo、benjiemingwan、梓涵、Me_小华、zhaochengw、cofface
