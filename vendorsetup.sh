@@ -1,0 +1,3 @@
+add_lunch_combo cm_U810-user
+add_lunch_combo cm_U810-userdebug
+add_lunch_combo cm_U810-eng
